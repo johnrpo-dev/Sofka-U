@@ -1,17 +1,21 @@
+import Clases.*;
+
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         ArrayList<Vehicle> vehicles = new ArrayList<>();
-          String kind;
-          int passengers;
-          boolean crew;
-          int numWheels;
-          String registrationDate;
-          String medium;
-          int i = 0;
+        String kind;
+        int passengers;
+        boolean crew;
+        int numWheels;
+        String registrationDate;
+        int numDoors;
+        int height;
+        int i = 0;
 
         while(vehicles.size()<10){
             i++;
@@ -21,12 +25,36 @@ public class Main {
             System.out.println("Ingrese el número de pasajeros del " + i + " vehículo");
             passengers = Integer.parseInt(sc.nextLine());
             System.out.println("Ingrese el número de ruedas del " + i + " vehículo");
+            System.out.println("Si es carro, moto, bicicleta o lancha No Aplica");
             numWheels = Integer.parseInt(sc.nextLine());
             System.out.println("Ingrese la fecha de matrícula del " + i + " vehículo");
             registrationDate = sc.nextLine();
-            System.out.println("Ingrese el medio de locomoción del " + i + " vehículo");
-            medium = sc.nextLine();
-            vehicles.add(new Vehicle(kind,passengers,numWheels,registrationDate,medium));
+            switch (kind.toLowerCase()){
+                case "carro":
+                    System.out.println("Ingrese el número de puertas del " + i + " vehículo");
+                    numDoors = Integer.parseInt(sc.nextLine());
+                    vehicles.add(new Car(kind,passengers,registrationDate, numDoors));
+                    break;
+                case "moto":
+                    vehicles.add(new Motorcycle(kind,passengers,registrationDate));
+                    break;
+                case "bicicleta":
+                    vehicles.add(new Bicycle(kind,passengers,registrationDate));
+                    break;
+                case "camion":
+                    System.out.println("Ingrese la altura del " + i + " vehículo");
+                    height = Integer.parseInt(sc.nextLine());
+                    vehicles.add(new Truck(kind, passengers, numWheels, registrationDate, height));
+                    break;
+                case "yate":
+                    vehicles.add(new Boat(kind,passengers,registrationDate));
+                    break;
+                default:
+                    System.out.println("Valor incorrecto!!");
+                    System.exit(0);
+                    //main("");
+                    break;
+            }
             int opc;
             do{
                 System.out.println("¿El vehículo tiene pasajeros?");

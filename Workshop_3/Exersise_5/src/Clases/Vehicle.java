@@ -1,3 +1,5 @@
+package Clases;
+
 public class Vehicle {
     private int id = 0;
     private final String kind;

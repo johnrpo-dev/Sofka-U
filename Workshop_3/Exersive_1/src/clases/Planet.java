@@ -1,5 +1,8 @@
 package clases;
 
+/**
+ * Clase Planeta que adjunta y crea los datos
+ */
 public class Planet {
     private final int id;
     private String name;
@@ -8,6 +11,13 @@ public class Planet {
     private double Diameter;
     private double averageDistanceSun;
 
+    /**
+     *
+     * @param id
+     * @param name nombre
+     * @param mass masa
+     * @param averageDistanceSun distancia al Sol
+     */
     public Planet(int id, String name, double mass, double averageDistanceSun) {
         this.id = id;
         this.name = name;

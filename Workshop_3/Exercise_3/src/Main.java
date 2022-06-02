@@ -7,6 +7,10 @@ public class Main {
 
     public static Scanner sc = new Scanner(System.in);
 
+    /**
+     * En el método principal va capturando los numeros con el ciclo while
+     * @param args
+     */
     public static void main(String[] args) {
         ArrayList<Integer> ranNum = new ArrayList<>();
         Random random = new Random();
@@ -26,10 +30,18 @@ public class Main {
         }
 
         System.out.println(ranNum);
-
+        /**
+         * Función qu pregunta por cual método va a ordenar
+         */
         Menu(ranNum);
     }
 
+    /**
+     * Método quicksort
+     * @param A Arreglo de los números en desorden
+     * @param izq El primer índice del arreglo
+     * @param der El último índice del arreglo
+     */
     public static void quicksort(Integer[] A, int izq, int der) {
 
         int pivote=A[izq]; // tomamos primer elemento como pivote
@@ -57,6 +69,10 @@ public class Main {
 
     }
 
+    /**
+     * Método de la burbuja
+     * @param arreglo El arreglo con los números desordenados
+     */
     private static void buble(Integer[] arreglo) {
         for (int x = 0; x < arreglo.length; x++) {
             // Aquí "y" se detiene antes de llegar
@@ -74,6 +90,10 @@ public class Main {
         }
     }
 
+    /**
+     * Método decisional que elige entre los dos métodos de ordenamiento
+     * @param ranNum es el ArrayList que luego se convierte en array para usar los métodos de ordenamiento
+     */
     private static void Menu(ArrayList<Integer> ranNum){
         System.out.println("¿Cón que métodos quiere que ordenemos la lista?");
         System.out.println("\t1. Método de la burbuja");
@@ -99,6 +119,11 @@ public class Main {
         }
     }
 
+    /**
+     * Función que imprime los números ya ordenados y los vuelve a convertir en un ArrayList para mejor visualización
+     * @param ranNum ArrayList reconstruido con los valores ardenados
+     * @param ranNum2 Vector de tipo int del cual se extraen los números ordenados para volverlo a convertir en ArrayList
+     */
     private static void Print(ArrayList<Integer> ranNum, Integer[] ranNum2){
         int size = ranNum.size();
         ranNum.clear();
